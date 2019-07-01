@@ -8,11 +8,19 @@
     <artifactId>framework</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+
+    <!-- 子模块 -->
     <modules>
         <module>mongo</module>
         <module>maven</module>
         <module>springboot</module>
     </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+    </properties>
 
 </project>
