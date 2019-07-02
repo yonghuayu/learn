@@ -1,4 +1,4 @@
-package com.yu.learn.global.form;
+package com.yu.learn.global.web.from;
 
 import java.io.Serializable;
 

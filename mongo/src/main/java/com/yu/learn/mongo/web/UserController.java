@@ -1,15 +1,16 @@
 package com.yu.learn.mongo.web;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yu.learn.global.response.GlobalResponseFactory;
+import com.yu.learn.global.web.group.IAddGroup;
 import com.yu.learn.mongo.domain.UserDomain;
+import com.yu.learn.mongo.form.UserFormBean;
 import com.yu.learn.mongo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 /**
  * 〈功能简述〉
@@ -23,24 +24,36 @@ import javax.validation.Valid;
 public class UserController {
 
     /**
+     * objectMapper
+     */
+    private final ObjectMapper objectMapper;
+
+    /**
      * user service
      */
     private final UserService userService;
 
+    /**
+     * 强制注入
+     *
+     * @param objectMapper obj
+     * @param userService  service
+     */
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(ObjectMapper objectMapper, UserService userService) {
+        this.objectMapper = objectMapper;
         this.userService = userService;
     }
 
     /**
      * 新增
      *
-     * @param userDomain user
+     * @param userFormBean user
      * @return resp
      */
     @PostMapping("add")
-    public ResponseEntity add(@Validated @RequestBody UserDomain userDomain) {
-        return GlobalResponseFactory.ok(userService.add(userDomain));
+    public ResponseEntity add(@Validated({IAddGroup.class}) @RequestBody UserFormBean userFormBean) {
+        return GlobalResponseFactory.ok(userService.add(objectMapper.convertValue(userFormBean, UserDomain.class)));
     }
 
     /**

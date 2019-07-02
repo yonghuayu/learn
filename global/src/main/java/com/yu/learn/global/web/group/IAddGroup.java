@@ -1,4 +1,4 @@
-package com.yu.learn.global.form.group;
+package com.yu.learn.global.web.group;
 
 /**
  * 验证器:新增类型分组
