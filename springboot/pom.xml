@@ -26,6 +26,12 @@
     <build>
 
         <plugins>
+            <!-- springBoot的maven插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
             <!-- 配置jdk版本 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

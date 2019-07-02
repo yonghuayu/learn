@@ -23,6 +23,11 @@ public class FirstController {
      */
     private final FirstService firstService;
 
+    /**
+     * 构造器方式强制注入
+     *
+     * @param firstService service
+     */
     @Autowired
     public FirstController(FirstService firstService) {
         this.firstService = firstService;

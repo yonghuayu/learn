@@ -10,17 +10,60 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>mongo</artifactId>
+    <name>learn mongodb</name>
 
+    <!-- maven自定义变量 -->
+    <properties>
+        <!--spring boot 版本-->
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
+    </properties>
+
+    <!-- 依赖 -->
     <dependencies>
-        
+        <!-- spring boot start web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>2.1.6.RELEASE</version>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- mongodb -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- springBoot的maven插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- 配置jdk版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
