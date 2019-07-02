@@ -14,6 +14,7 @@
         <module>mongo</module>
         <module>maven</module>
         <module>springboot</module>
+        <module>global</module>
     </modules>
 
     <properties>

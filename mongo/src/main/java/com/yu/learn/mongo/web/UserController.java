@@ -1,10 +1,12 @@
 package com.yu.learn.mongo.web;
 
+import com.yu.learn.global.response.GlobalResponseFactory;
 import com.yu.learn.mongo.domain.UserDomain;
 import com.yu.learn.mongo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -37,8 +39,8 @@ public class UserController {
      * @return resp
      */
     @PostMapping("add")
-    public ResponseEntity add(@Valid @RequestBody UserDomain userDomain) {
-        return ResponseEntity.ok(userService.add(userDomain));
+    public ResponseEntity add(@Validated @RequestBody UserDomain userDomain) {
+        return GlobalResponseFactory.ok(userService.add(userDomain));
     }
 
     /**
@@ -49,6 +51,6 @@ public class UserController {
      */
     @GetMapping("findByName")
     public ResponseEntity findByName(@RequestParam("name") String name) {
-        return ResponseEntity.ok(userService.findByName(name));
+        return GlobalResponseFactory.ok(userService.findByName(name));
     }
 }

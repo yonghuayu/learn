@@ -2,38 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <parent>
         <artifactId>framework</artifactId>
         <groupId>com.yu.learn</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mongo</artifactId>
-    <name>learn mongodb</name>
 
-    <!-- maven自定义变量 -->
-    <properties>
-        <!--spring boot 版本-->
-        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
-    </properties>
+    <artifactId>global</artifactId>
+    <name>global base</name>
+    <version>1.0.0-SNAPSHOT</version>
 
-    <!-- 依赖 -->
     <dependencies>
 
-        <!-- global -->
-        <dependency>
-            <groupId>com.yu.learn</groupId>
-            <artifactId>global</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <!-- mongodb -->
+        <!-- spring boot start web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>${spring.boot.version}</version>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.1.6.RELEASE</version>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <!--<scope>provided</scope>-->
         </dependency>
 
     </dependencies>

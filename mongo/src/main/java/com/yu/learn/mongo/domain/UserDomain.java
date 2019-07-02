@@ -3,7 +3,6 @@ package com.yu.learn.mongo.domain;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Repository;
 
 /**
  * 用户
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
  * @date 2019/6/28 16:46
  */
 @Data
-@Repository
 @Document(collection = "sys_user")
 public class UserDomain {
 
