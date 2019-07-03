@@ -57,6 +57,26 @@ public class UserController {
     }
 
     /**
+     * 新增
+     *
+     * @param type user
+     * @return resp
+     */
+    @PostMapping("type")
+    public ResponseEntity res(@RequestParam("type") String type) {
+        switch (type) {
+            case "1":
+                return GlobalResponseFactory.ok();
+            case "2":
+                return GlobalResponseFactory.bad();
+            case "3":
+                return GlobalResponseFactory.error();
+            default:
+        }
+        return GlobalResponseFactory.badMsg(type);
+    }
+
+    /**
      * 根据名称查询列表
      *
      * @param name 名称
