@@ -9,3 +9,24 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/mydb
+
+# log
+logging:
+  file:
+    path: /log
+    name: yyh.log
+
+  #日志级别
+  level:
+    db: INFO
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+
+  # 日志分组
+  group:
+    # 数据库组日志级别
+    db:
+      - org.mongodb
+      - org.hibernate

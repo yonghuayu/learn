@@ -3,6 +3,7 @@ package com.yu.learn.mongo.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yu.learn.global.response.GlobalResponseFactory;
 import com.yu.learn.global.web.group.IAddGroup;
+import com.yu.learn.global.web.group.IRemoveGroup;
 import com.yu.learn.mongo.domain.UserDomain;
 import com.yu.learn.mongo.form.UserFormBean;
 import com.yu.learn.mongo.service.UserService;
@@ -54,6 +55,17 @@ public class UserController {
     @PostMapping("add")
     public ResponseEntity add(@Validated({IAddGroup.class}) @RequestBody UserFormBean userFormBean) {
         return GlobalResponseFactory.ok(userService.add(objectMapper.convertValue(userFormBean, UserDomain.class)));
+    }
+
+    /**
+     * 删除
+     *
+     * @param userFormBean user
+     * @return resp
+     */
+    @PostMapping("remove")
+    public ResponseEntity remove(@Validated({IRemoveGroup.class}) @RequestBody UserFormBean userFormBean) {
+        return GlobalResponseFactory.ok(userFormBean.getIds());
     }
 
     /**

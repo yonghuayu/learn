@@ -2,3 +2,4 @@ codeStyles
 .idea
 *.iml
 classes
+target

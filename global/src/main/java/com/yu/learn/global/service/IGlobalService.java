@@ -1,5 +1,6 @@
 package com.yu.learn.global.service;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface IGlobalService<T extends Serializable> {
      * @param t 对象
      * @return 主键ID
      */
-    String add(T t);
+    String add(@NotNull T t);
 
     /**
      * 修改
@@ -25,7 +26,7 @@ public interface IGlobalService<T extends Serializable> {
      * @param t 对象
      * @return 修改结果描述信息
      */
-    String modify(T t);
+    String modify(@NotNull T t);
 
     /**
      * 根据主键ID批量删除
@@ -33,7 +34,7 @@ public interface IGlobalService<T extends Serializable> {
      * @param ids 主键ID集合
      * @return 受删除影响的记录数量
      */
-    int removeByIds(List<String> ids);
+    int removeByIds(@NotNull List<String> ids);
 
     /**
      * 查询所有
@@ -48,5 +49,5 @@ public interface IGlobalService<T extends Serializable> {
      * @param t 对象
      * @return list
      */
-    List<T> list(T t);
+    List<T> list(@NotNull T t);
 }
