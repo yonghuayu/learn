@@ -337,4 +337,15 @@ public class GlobalResponseFactory {
     public static ResponseEntity error(GlobalResponse response) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
+
+    /**
+     * 响应对象
+     *
+     * @param status   http状态
+     * @param response 对象
+     * @return bean
+     */
+    public static ResponseEntity entity(HttpStatus status, GlobalResponse response) {
+        return ResponseEntity.status(status).body(response);
+    }
 }

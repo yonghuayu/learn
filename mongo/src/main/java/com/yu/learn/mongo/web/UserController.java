@@ -1,11 +1,13 @@
 package com.yu.learn.mongo.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yu.learn.global.exception.GlobalExceptionFactory;
 import com.yu.learn.global.response.GlobalResponseFactory;
 import com.yu.learn.global.web.group.IAddGroup;
 import com.yu.learn.global.web.group.IRemoveGroup;
 import com.yu.learn.mongo.domain.UserDomain;
 import com.yu.learn.mongo.form.UserFormBean;
+import com.yu.learn.mongo.service.RestTemplateService;
 import com.yu.learn.mongo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,15 +37,21 @@ public class UserController {
     private final UserService userService;
 
     /**
+     *
+     */
+    private final RestTemplateService restTemplateService;
+
+    /**
      * 强制注入
      *
      * @param objectMapper obj
      * @param userService  service
      */
     @Autowired
-    public UserController(ObjectMapper objectMapper, UserService userService) {
+    public UserController(ObjectMapper objectMapper, UserService userService, RestTemplateService restTemplateService) {
         this.objectMapper = objectMapper;
         this.userService = userService;
+        this.restTemplateService = restTemplateService;
     }
 
     /**
@@ -97,5 +105,38 @@ public class UserController {
     @GetMapping("findByName")
     public ResponseEntity findByName(@RequestParam("name") String name) {
         return GlobalResponseFactory.ok(userService.findByName(name));
+    }
+
+    /**
+     * user
+     *
+     * @param user 名称
+     * @return res
+     */
+    @RequestMapping(value = "/{user}", method = RequestMethod.GET)
+    public ResponseEntity getUser(@PathVariable Long user) throws Exception {
+        if (null == user) {
+            user = 0L;
+        }
+        String value = user.toString();
+        switch (value) {
+            case "1":
+                throw GlobalExceptionFactory.exception();
+            case "2":
+                throw new RuntimeException("这是运行时异常");
+            default:
+                throw new Exception("自定义抛出异常");
+        }
+    }
+
+    /**
+     * user
+     *
+     * @param number 名称
+     * @return res
+     */
+    @GetMapping("/rest")
+    public ResponseEntity rest(@RequestParam(value = "number", defaultValue = "1") Long number) throws Exception {
+        return GlobalResponseFactory.ok(restTemplateService.requestBaiDu());
     }
 }

@@ -7,4 +7,9 @@ package com.yu.learn.global.exception;
  * @date 2019/7/2 11:33
  */
 public class GlobalExceptionFactory {
+
+
+    public static GlobalException exception() {
+        return GlobalException.builder().code(200).msg("error").build();
+    }
 }

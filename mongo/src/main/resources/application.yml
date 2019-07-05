@@ -10,6 +10,13 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/mydb
 
+  #国际化
+  messages:
+    basename:
+      - messages
+      - config.i18n.messages
+    fallback-to-system-locale: false
+
 # log
 logging:
   file:
@@ -22,7 +29,7 @@ logging:
     root: INFO
     org:
       springframework:
-        web: INFO
+        web: DEBUG
 
   # 日志分组
   group:
@@ -30,3 +37,5 @@ logging:
     db:
       - org.mongodb
       - org.hibernate
+
+# 国际化
