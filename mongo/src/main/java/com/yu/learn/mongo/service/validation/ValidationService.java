@@ -1,5 +1,10 @@
 package com.yu.learn.mongo.service.validation;
 
+import com.yu.learn.global.web.group.IAddGroup;
+import com.yu.learn.global.web.group.IModifyGroup;
+import com.yu.learn.mongo.form.ValidationFormBean;
+import org.springframework.validation.annotation.Validated;
+
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -58,4 +63,20 @@ public interface ValidationService {
      * @return msg
      */
     String min(@Min(3) long msg);
+
+    /**
+     * add
+     *
+     * @param validationFormBean bean
+     * @return id
+     */
+    String add(@Validated({IAddGroup.class}) ValidationFormBean validationFormBean);
+
+    /**
+     * modify
+     *
+     * @param validationFormBean bean
+     * @return id
+     */
+    String modify(@Validated({IModifyGroup.class}) ValidationFormBean validationFormBean);
 }

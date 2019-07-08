@@ -1,13 +1,11 @@
 package com.yu.learn.mongo.web;
 
 import com.yu.learn.global.response.GlobalResponseFactory;
+import com.yu.learn.mongo.form.ValidationFormBean;
 import com.yu.learn.mongo.service.validation.ValidationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -96,5 +94,27 @@ public class ValidationController {
     @GetMapping("/min")
     public ResponseEntity min(@RequestParam("msg") long msg) {
         return GlobalResponseFactory.ok(validationService.min(msg));
+    }
+
+    /**
+     * 新增
+     *
+     * @param msg msg
+     * @return msg
+     */
+    @PostMapping("/add")
+    public ResponseEntity add(@RequestBody ValidationFormBean msg) {
+        return GlobalResponseFactory.ok(validationService.add(msg));
+    }
+
+    /**
+     * 编辑
+     *
+     * @param msg msg
+     * @return msg
+     */
+    @PostMapping("/modify")
+    public ResponseEntity modify(@RequestBody ValidationFormBean msg) {
+        return GlobalResponseFactory.ok(validationService.modify(msg));
     }
 }

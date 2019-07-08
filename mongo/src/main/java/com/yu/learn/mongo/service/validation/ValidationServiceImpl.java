@@ -1,9 +1,13 @@
 package com.yu.learn.mongo.service.validation;
 
+import com.yu.learn.global.web.group.IAddGroup;
+import com.yu.learn.global.web.group.IModifyGroup;
+import com.yu.learn.mongo.form.ValidationFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -46,5 +50,16 @@ public class ValidationServiceImpl implements ValidationService {
     @Override
     public String min(@Min(3) long msg) {
         return String.valueOf(msg);
+    }
+
+    @Override
+    public String add(@Valid ValidationFormBean validationFormBean) {
+
+        return validationFormBean.toString();
+    }
+
+    @Override
+    public String modify(@Validated({IModifyGroup.class}) ValidationFormBean validationFormBean) {
+        return validationFormBean.toString();
     }
 }
