@@ -33,6 +33,8 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}-${project.version}-yyh</finalName>
+
         <plugins>
             <!-- springBoot的maven插件 -->
             <plugin>

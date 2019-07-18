@@ -39,6 +39,7 @@
     </dependencies>
 
     <build>
+
         <plugins>
             <!-- 打包为可执行jar -->
             <plugin>

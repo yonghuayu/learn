@@ -11,6 +11,7 @@
 
     <artifactId>webflux</artifactId>
     <name>learn webflux</name>
+    <packaging>jar</packaging>
 
     <!-- 依赖 -->
     <dependencies>
@@ -37,6 +38,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--<configuration>
+                    <executable>true</executable>
+                </configuration>-->
             </plugin>
 
             <!-- 配置jdk版本 -->
