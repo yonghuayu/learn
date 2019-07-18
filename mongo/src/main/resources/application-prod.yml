@@ -1,0 +1,42 @@
+#生产环境的配置
+#server
+server:
+  port: 10001
+  servlet:
+    context-path: /dev/mongo
+
+# mongo
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/mydb
+
+  #国际化
+  messages:
+    basename:
+      - messages
+      - config.i18n.messages
+    fallback-to-system-locale: false
+
+# log
+logging:
+  file:
+    path: /log
+    name: yyh.log
+
+  #日志级别
+  level:
+    db: INFO
+    root: INFO
+    org:
+      springframework:
+        web: DEBUG
+
+  # 日志分组
+  group:
+    # 数据库组日志级别
+    db:
+      - org.mongodb
+      - org.hibernate
+
+# 国际化
