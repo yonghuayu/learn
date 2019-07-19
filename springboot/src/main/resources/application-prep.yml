@@ -1,0 +1,5 @@
+#预生产环境配置
+server:
+  port: 10001
+  servlet:
+    context-path: /springboot

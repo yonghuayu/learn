@@ -1,4 +1,4 @@
-#配置文件
+#根据环境更改配置文件
 spring:
   profiles:
     active: dev

@@ -1,5 +1,4 @@
 #server
-server:
-  port: 10001
-  servlet:
-    context-path: /springboot
+spring:
+  profiles:
+    active: dev
