@@ -9,7 +9,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/mydb
+    uri: mongodb://localhost:27017/mydb
 
   #国际化
   messages:

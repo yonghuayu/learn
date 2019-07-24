@@ -3,6 +3,7 @@ package com.yu.learn.mongo.service;
 import com.yu.learn.mongo.domain.UserDomain;
 import com.yu.learn.mongo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotBlank;
@@ -21,17 +22,9 @@ public class UserServiceImpl implements UserService {
     /**
      * user mapper
      */
-    private final UserMapper userMapper;
-
-    /**
-     * 强制注入
-     *
-     * @param userMapper user
-     */
+    @Lazy
     @Autowired
-    public UserServiceImpl(UserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
+    private UserMapper userMapper;
 
     /**
      * 新增
